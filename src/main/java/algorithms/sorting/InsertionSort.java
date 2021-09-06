@@ -1,5 +1,9 @@
 package algorithms.sorting;
 
+/**
+ *  Insertion sort
+ *  Time Complexity -> Worst case = O(n^2), Best case (already sorted list) = O(n)
+ */
 public class InsertionSort {
     public void sort (int[] input) {
         for (int i = 1; i < input.length; i++) {
