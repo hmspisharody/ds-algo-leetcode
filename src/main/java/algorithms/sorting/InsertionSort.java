@@ -16,4 +16,17 @@ public class InsertionSort {
             }
         }
     }
+
+    // Alternate method with half the number of swaps
+    public void sortWithLessSwaps (int[] input) {
+        for (int i = 1; i < input.length; i++) {
+            int curNum = input[i];
+            int j = i-1;
+            while (j >= 0 && curNum < input[j]) {
+                input[j+1] = input[j];
+                j--;
+            }
+            input[j+1] = curNum;
+        }
+    }
 }
