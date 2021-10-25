@@ -17,7 +17,7 @@ public class BubbleSort {
         }
     }
 
-    // Alternate implementation with sorted flag
+//    // Alternate implementation with sorted flag
     public void sortWithFlag(int[] array) {
         boolean sorted = false;
         while(!sorted) {

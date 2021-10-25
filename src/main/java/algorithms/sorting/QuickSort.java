@@ -6,31 +6,38 @@ public class QuickSort {
         quickSort(input, 0, input.length-1);
     }
 
-    private int findPivot (int[] input, int left, int right) {
-        int pivotVal = input[right];
-        int pivot = left;
-        int i = left;
-
-        while (i < right) {
-            if (input[i] < pivotVal) {
-                int temp = input[i];
-                input[i] = input[pivot];
-                input[pivot] = temp;
-                pivot++;
-            }
-            i++;
-        }
-        input[right] = input[pivot];
-        input[pivot] = pivotVal;
-        return pivot;
+    private void swap(int[] input, int pivot, int i) {
+        int temp = input[i];
+        input[i] = input[pivot];
+        input[pivot] = temp;
     }
 
-    private void quickSort (int[] input, int left, int right) {
-        if (left >= right) return;
+    private void quickSort(int[] input, int start, int end) {
+        if (start >= end) {
+            return;
+        }
 
-        int pivot = findPivot(input, left, right);
+        int pivot = findPivot(input, start, end);
+        quickSort(input, start, pivot-1);
+        quickSort(input, pivot+1, end);
+    }
 
-        quickSort(input, left, pivot - 1);
-        quickSort(input, pivot + 1, right);
+    private int findPivot(int[] input, int start, int end) {
+        int idx = start;
+        int pivot = start;
+        int pivotVal = input[end];
+
+        while (idx < end) {
+            if (input[idx] < pivotVal) {
+                swap(input, idx, pivot);
+                pivot++;
+            }
+            idx++;
+        }
+
+        input[end] = input[pivot];
+        input[pivot] = pivotVal;
+
+        return pivot;
     }
 }

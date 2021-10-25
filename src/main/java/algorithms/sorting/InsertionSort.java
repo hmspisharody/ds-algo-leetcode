@@ -29,4 +29,5 @@ public class InsertionSort {
             input[j+1] = curNum;
         }
     }
+
 }
